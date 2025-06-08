@@ -1,4 +1,3 @@
-```java 
 import java.util.*;
 import java.io.*;
 class Solution {
@@ -66,4 +65,3 @@ class Solution {
     }
     
 }
-```
