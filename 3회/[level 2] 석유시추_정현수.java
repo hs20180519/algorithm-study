@@ -2,12 +2,12 @@ import java.util.*;
 import java.io.*;
 
 class A {
-    static int landSize;
-    static int landNumber;
+    int landSize;
+    int landNumber;
     
     A(int landSize, int landNumber){
-        A.landSize = landSize;
-        A.landNumber = landNumber;
+        this.landSize = landSize;
+        this.landNumber = landNumber;
     }
 }
 
@@ -24,26 +24,26 @@ class Solution {
             for(int j=0; j<land[0].length; j++){
                 if(land[i][j]==1 && !visited[i][j]){
                     List<int[]> arr = bfs(land, map, i, j, visited);
-                    System.out.println(Arrays.toString)
+        
                     for(int[] a : arr){
-                        System.out.println(arr.size());
-                        map[a[0]][a[1]].landNumber = landNum;
-                        map[a[0]][a[1]].landSize = arr.size();
+                        map[a[0]][a[1]] = new A(arr.size(), landNum);
                     }
+                    landNum++;
                 }
             }
         }
         int f = 0;
         for(int i=0; i<land[0].length; i++){
-            Set<A> s = new HashSet<>();
+            Map<Integer, Integer> s = new HashMap<>();
             int answer = 0;
             for(int j=0; j<land.length; j++){
                 if(land[j][i] == 1){
-                    s.add(map[j][i]);
+                    A m = map[j][i];
+                    s.put(m.landNumber, m.landSize);    
                 }
             }
-            for(A a : s){
-                answer+=a.landSize;
+            for(int size : s.values()){
+                answer+= size;
             }
             f = Math.max(answer, f);
         }
