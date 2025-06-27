@@ -32,21 +32,18 @@ public class Main {
                 printer.add(new int[] {i, priority});
             }
 
-            Map<Integer, Integer> printed = new HashMap<>();
-
-            int order = 1;
+            int order = 0;
             while(!printer.isEmpty()) {
                 int[] doc = printer.poll();
                 if(doc[1] == pq.peek()[1]) { // 중요도가 가장 높은 문서인 경우
                     pq.poll();
-                    printed.put(doc[0], order++);
-                    
+                    order++;
                     if(doc[0] == m) break;
                 } else if(doc[1] < pq.peek()[1]) { // 중요도가 가장 높지 않은 문서인 경우
                     printer.add(doc);
                 }
             }
-            System.out.println(printed.get(m));
+            System.out.println(order);
         }
     }
 }
