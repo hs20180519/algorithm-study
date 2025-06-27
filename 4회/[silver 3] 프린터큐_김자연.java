@@ -40,6 +40,8 @@ public class Main {
                 if(doc[1] == pq.peek()[1]) { // 중요도가 가장 높은 문서인 경우
                     pq.poll();
                     printed.put(doc[0], order++);
+                    
+                    if(doc[0] == m) break;
                 } else if(doc[1] < pq.peek()[1]) { // 중요도가 가장 높지 않은 문서인 경우
                     printer.add(doc);
                 }
