@@ -44,7 +44,7 @@ public class Main {
                         break;
                     }
                 }
-
+ 
                 if (higher) {
                     queue.offerLast(queue.pollFirst());
                 } else {
