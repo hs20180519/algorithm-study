@@ -10,6 +10,7 @@ class Solution {
             max = Math.max(max, w);
             min = Math.max(min, h);
         }
+        
         return min * max;
     }
 }
