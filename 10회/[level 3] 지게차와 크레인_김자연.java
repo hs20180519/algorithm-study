@@ -5,11 +5,14 @@ class Solution {
     static char map[][];
     static int dx[] = {0, 0, 1, -1};
     static int dy[] = {1, -1, 0, 0};
-    
+
+    // check if it's reachable or not
+    // make reachable pos '0'
     public void makeEdge() {
         Queue<int[]> q = new LinkedList<>();
         boolean visited[][] = new boolean[N][M];
-        
+
+        // check if '1' or '0' on the edge
         for(int i=0;i<N;i++) {
             if(map[i][0] == '1' || map[i][0] == '0') {
                 visited[i][0] = true;
@@ -49,7 +52,8 @@ class Solution {
                 q.add(new int[] {ny, nx});
             }
         }
-        
+
+        // visited == reachable => '0'
         for(int i=0;i<N;i++) {
             for(int j=0;j<M;j++) {
                 if(visited[i][j]) map[i][j] = '0';
@@ -95,7 +99,8 @@ class Solution {
         
         return false;
     }
-    
+
+    // 일단 make not reachable('1')
     public void remove(List<int[]> posList) {
         for(int[] pos : posList) {
             int y = pos[0];
