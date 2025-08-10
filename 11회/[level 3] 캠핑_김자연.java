@@ -35,8 +35,10 @@ class Solution {
         
         return true;
     }
+    
     public int solution(int n, int[][] data) {
         answer = 0;
+        
         Arrays.sort(data, new Comparator<int[]>() {
             @Override
             public int compare(int[] a, int[] b) {
@@ -47,7 +49,6 @@ class Solution {
         
         comb(n, data, 0, 0, new int[2]);
         
-    
         return answer;
     }
 }
