@@ -20,11 +20,11 @@ class Solution {
             window.put(discount[i], cnt+1);
         }
         
-        for(int i=9;i<discount.length;i++) {
+        for(int i=size-1;i<discount.length;i++) {
             if(check(want, number)) answer++;
             if(i+1 >= discount.length) break;
             
-            window.put(discount[i-9], window.get(discount[i-9]) - 1);
+            window.put(discount[i-size+1], window.get(discount[i-size+1]) - 1);
             window.put(discount[i+1], window.getOrDefault(discount[i+1], 0) + 1);
         }
         
