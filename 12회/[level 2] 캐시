@@ -1,0 +1,25 @@
+import java.util.*;
+class Solution {
+    public int solution(int cacheSize, String[] cities) {
+        Set<String> set = new LinkedHashSet<>();
+        int answer = 0;
+        for (String city : cities) {
+            city = city.toLowerCase();
+            if (set.contains(city)) {
+                set.remove(city);
+                set.add(city);
+                answer += 1;
+            } else {
+                if (set.size() >= cacheSize && cacheSize > 0) {
+                    String first = set.iterator().next();
+                    set.remove(first);
+                }
+                if (cacheSize > 0) {
+                    set.add(city);
+                }
+                answer += 5;
+            }
+        }
+        return answer;
+    }
+}
