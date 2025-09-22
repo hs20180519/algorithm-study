@@ -18,7 +18,6 @@ class Solution {
             answer++;
             return;
         }
-        
         for(int i=start;i<=n;i++) {
             selected[depth] = i;
             comb(i+1, depth+1, selected, n, q, ans);
